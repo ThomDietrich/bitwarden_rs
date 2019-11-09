@@ -117,22 +117,6 @@ impl<'r, R: 'r + Responder<'r> + Send> Responder<'r> for Cached<R> {
                 e @ Err(_) => e
             }
         }).boxed()
-
-       /* let response = self.0.respond_to(req).await;
-
-        if let e @ Err(_) = response {
-            Box::pin(async move { e })   
-        } else {
-            response.then()
-        }*/
-        
-        /*match  {
-            Ok(mut res) => Box::pin(async move {
-                res.set_raw_header("Cache-Control", self.1);
-                Ok(res)
-            }),
-            e @ Err(_) => Box::pin(async move { e }),
-        }*/
     }
 }
 
